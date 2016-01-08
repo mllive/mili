@@ -16,41 +16,26 @@
 			if(username==''){
 				msg="您还没有输入用户名！";
 				popMsg(msg);
-				$("#username").focus();
 				return;
 			}
 			if(password==''){
 				msg="您还没有输入密码！";
 				popMsg(msg);
-				$("#password").focus();
 				return;
 			}
 			if(password2!=password){
 				msg="两次输入的密码不一致！";
 				popMsg(msg);
-				$("#password").focus();
 				return;
 			}
-			var formParam = $("#userForm").serialize();//序列化表格内容为字符串  
-			$.ajax({  
-				type:'post',      
-				url:'save',  
-				data:formParam,  
-				cache:false,  
-				dataType:'json',  
-				success:function(data){
-					if(data.success){
-						if(1==data.msg){
-							popMsg("注册失败，用户名已存在！");
-						}else{
-							popMsg("注册成功！");
-							window.location="i/"+data.obj.username;
-						}
-					}else{
-						popMsg("注册失败！");
-					}
-				}  
-			}); 
+			
+			$.post(
+				"demo_ajax_gethint.asp",
+				{suggest:txt},
+				function(result){
+					$("span").html(result);
+				}
+			);
 		});
 		
 		function popMsg(msg){
@@ -63,10 +48,10 @@
 <body>
 	<div data-role="page">
 		<div data-role="header">
-			<h1>新用户注册</h1>
+			<h1>用户登录</h1>
 		</div>
 		<div data-role="main" class="ui-content" align="center">
-			<form method="post" id="userForm" action="">
+			<form method="post" action="save">
 				<label for="username" class="ui-hidden-accessible">账号：</label>
 				<input type="text" name="username" id="username" placeholder="账号..." data-clear-btn="true">
 				<label for="password" class="ui-hidden-accessible">密码：</label>

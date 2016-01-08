@@ -10,14 +10,14 @@ public class ActionMessage implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private boolean success = false;// 是否成功
-	private String msg = "";// 提示信息
+	private Object msg = "";// 提示信息
 	private Object obj = null;// 其他信息
 
-	public String getMsg() {
+	public Object getMsg() {
 		return msg;
 	}
 
-	public void setMsg(String msg) {
+	public void setMsg(Object msg) {
 		this.msg = msg;
 	}
 

@@ -24,18 +24,26 @@ public class UserServiceImpl implements UserServiceI {
 	@Autowired
 	private UserDaoI userDao;
 
-	public Long save(UserModel user) throws UserException {
+	public int save(UserModel user) throws UserException {
+		int result = 0;
 		try {
-			User u = new User();
-			u.setUsername(user.getUsername());
-			MD5 md5 = new MD5();
-			u.setPassword(md5.getEncodeString(user.getPassword()));
-			u.setCode(userDao.getUserNewCode());
-			u.setCode(userDao.getUserNewCode());
-			return baseDao.save(u);
+			// 检查用户名是否存在
+			User u = userDao.getUserByName(user.getUsername());
+			if (null != u) {
+				result = 1;
+			} else {
+				u = new User();
+				u.setUsername(user.getUsername());
+				u.setState(1);
+				MD5 md5 = new MD5();
+				u.setPassword(md5.getEncodeString(user.getPassword()));
+				u.setCode(userDao.getUserNewCode());
+				baseDao.save(u);
+			}
 		} catch (Exception e) {
 			throw new UserException("保存用户失败" + e.getMessage(), e);
 		}
+		return result;
 	}
 
 	public void update(UserModel user) throws UserException {
@@ -46,6 +54,10 @@ public class UserServiceImpl implements UserServiceI {
 		} catch (Exception e) {
 			throw new UserException("修改用户失败" + e.getMessage(), e);
 		}
+	}
+
+	public User getUserByName(String username) {
+		return userDao.getUserByName(username);
 	}
 
 	public List<Map<String, Object>> getUsersList(String username) {

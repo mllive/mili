@@ -1,5 +1,8 @@
 package com.robot.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.ParameterMode;
 
 import org.hibernate.procedure.ProcedureCall;
@@ -18,4 +21,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
 		return newcode;
 	}
 
+	public User getUserByName(String username) {
+		List<Object> param = new ArrayList<Object>();
+		param.add(username);
+		List<User> userList = this.find(" from users where username=?", param);
+		if (null != userList && userList.size() > 0)
+			return userList.get(0);
+		else
+			return null;
+	}
 }
