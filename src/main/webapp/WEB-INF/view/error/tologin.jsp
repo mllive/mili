@@ -1,0 +1,1 @@
+<script>top.location='login.jsp'</script>

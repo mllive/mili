@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/robot/controller/BaseController.java=UTF-8
+encoding//src/main/java/com/robot/dao/BaseDaoI.java=UTF-8
+encoding//src/main/java/com/robot/httpModel/SessionInfo.java=UTF-8
+encoding//src/main/java/com/robot/httpModel/actionmessage/ActionMessage.java=UTF-8
+encoding//src/main/java/com/robot/interceptors=UTF-8
+encoding//src/main/java/com/robot/service/impl/UserServiceImpl.java=UTF-8
+encoding//src/main/java/com/robot/util/IpUtil.java=UTF-8
+encoding//src/main/java/com/robot/util/RequestUtil.java=UTF-8
+encoding//src/main/java/com/robot/util/ResourceUtil.java=UTF-8
+encoding//src/main/webapp/WEB-INF/view/error/404.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/error/authMsg.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/error/exception.jsp=UTF-8
+encoding/<project>=UTF-8
