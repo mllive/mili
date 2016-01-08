@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<div data-role="footer" data-position="fixed" data-fullscreen="true">
+<div data-role="footer" data-theme="b" data-position="fixed" data-fullscreen="true">
 	<div data-role="navbar">
 		<ul>
 			<li><a href="/user/" data-icon="home">个人主页</a></li>
