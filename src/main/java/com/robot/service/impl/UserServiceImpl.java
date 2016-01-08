@@ -31,12 +31,6 @@ public class UserServiceImpl implements UserServiceI {
 			MD5 md5 = new MD5();
 			u.setPassword(md5.getEncodeString(user.getPassword()));
 			u.setCode(userDao.getUserNewCode());
-			baseDao.save(u);
-			
-			u = new User();
-			u.setUsername(user.getUsername());
-			md5 = new MD5();
-			u.setPassword(md5.getEncodeString(user.getPassword()));
 			u.setCode(userDao.getUserNewCode());
 			return baseDao.save(u);
 		} catch (Exception e) {
