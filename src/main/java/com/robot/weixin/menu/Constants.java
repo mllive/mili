@@ -2,10 +2,11 @@ package com.robot.weixin.menu;
 
 public class Constants {
 
-	public final static String APPID_KEY = "appid";
-	public final static String APPSECRET_KEY = "appsecret";
-	public final static String WEBURL_KEY = "系统URL地址";
-	public final static String TOKEN = "token";
+	public final static String APPID_KEY = "wx9e0c2837e455ffe2";
+	public final static String APPSECRET_KEY = "1db9f1e6f35a9551320247b657db4cb8";
+	public final static String WEBURL_KEY = "http://colin-fang.oicp.net";
+	public final static String WEBROOT = "/robot";
+	public final static String TOKEN = "milirobotsecret";
 
 	public static String ACCESS_TOKEN = "FsfIE3Rfojsfv5ymH90Q8YVgIiLdTGdD2DJAuMdclRPFzi5DqZ4460JNkU9iG3xVfMF763F4kf5-VcDduZWKGA";
 

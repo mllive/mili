@@ -16,10 +16,6 @@
 				class="ui-btn ui-corner-all ui-shadow ui-icon-refresh ui-btn-icon-left">刷新</a>
 		</div>
 		<div data-role="main" class="ui-content">
-			<div align="center">
-				<a href="#" class="ui-btn ui-btn-inline ui-shadow">我的股票</a>
-				<a href="#" class="ui-btn ui-btn-inline ui-shadow">退出登录</a>
-			</div>
 			<h2>欢迎...最新消息</h2>
 			<ul data-role="listview" data-inset="true">
 				<li><a href="#">

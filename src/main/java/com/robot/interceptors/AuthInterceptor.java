@@ -49,16 +49,22 @@ public class AuthInterceptor implements HandlerInterceptor {
 		logger.info(IpUtil.getIpAddr(request) + ":" + contextPort + contextPath + requestPath);
 
 		// 登录无需验证
-		// if (requestPath.equals("/userController.do?login")) {
-		// return true;
-		// }
-		if (true) {
+		if (requestPath.startsWith("/resources")) {
+			return true;
+		}
+		if (requestPath.startsWith("/user/reg")) {
+			return true;
+		}
+		if (requestPath.startsWith("/user/tologin")) {
+			return true;
+		}
+		if (requestPath.startsWith("/user/login")) {
 			return true;
 		}
 
 		SessionInfo sessionInfo = (SessionInfo) request.getSession().getAttribute(ResourceUtil.getSessionInfoName());
 		if (sessionInfo == null) {// 没有登录系统，或登录超时
-			request.getRequestDispatcher("error/authMsg.jsp").forward(request, response);
+			request.getRequestDispatcher("/user/tologin").forward(request, response);
 			return false;
 		}
 		return true;

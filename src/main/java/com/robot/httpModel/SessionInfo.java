@@ -1,6 +1,6 @@
 package com.robot.httpModel;
 
-import com.robot.httpModel.vo.UserModel;
+import com.robot.entity.User;
 
 /**
  * session信息模型
@@ -11,13 +11,13 @@ public class SessionInfo implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private UserModel user;
+	private User user;
 
-	public UserModel getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserModel user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

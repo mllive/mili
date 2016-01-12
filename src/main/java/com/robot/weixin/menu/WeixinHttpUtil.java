@@ -84,4 +84,10 @@ public class WeixinHttpUtil {
 		}
 		return false;
 	}
+
+	public static void main(String[] args) {
+		getAccessToken();
+		Menu formatMenu = MenuManager.getMenu();
+		createMenu(formatMenu);
+	}
 }

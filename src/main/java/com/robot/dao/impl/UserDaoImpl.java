@@ -30,4 +30,15 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDaoI {
 		else
 			return null;
 	}
+
+	public User getUserByNameAndPassWord(String username, String password) {
+		List<Object> param = new ArrayList<Object>();
+		param.add(username);
+		param.add(password);
+		List<User> userList = this.find(" from users where username=? and password=?", param);
+		if (null != userList && userList.size() > 0)
+			return userList.get(0);
+		else
+			return null;
+	}
 }

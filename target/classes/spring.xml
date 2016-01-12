@@ -18,7 +18,7 @@
 
 	<!-- 自动扫描dao和service包(自动注入) -->
 	<context:component-scan
-		base-package="com.robit.dao,com.robit.service,com.robit.quartz" />
+		base-package="com.robot.dao,com.robot.service,com.robot.quartz,com.robot.weixin" />
 
 	<!-- 国际化配置 -->
 	<bean id="messageSource"

@@ -8,6 +8,8 @@ import com.robot.exception.UserException;
 import com.robot.httpModel.vo.UserModel;
 
 public interface UserServiceI {
+	public User getLoginUser(UserModel user) throws UserException;
+
 	public int save(UserModel user) throws UserException;
 
 	public void update(UserModel user) throws UserException;

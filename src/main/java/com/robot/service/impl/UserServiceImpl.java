@@ -24,6 +24,11 @@ public class UserServiceImpl implements UserServiceI {
 	@Autowired
 	private UserDaoI userDao;
 
+	public User getLoginUser(UserModel user) throws UserException {
+		MD5 md5 = new MD5();
+		return userDao.getUserByNameAndPassWord(user.getUsername(), md5.getEncodeString(user.getPassword()));
+	}
+
 	public int save(UserModel user) throws UserException {
 		int result = 0;
 		try {
