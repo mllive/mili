@@ -19,7 +19,7 @@
 		<div data-role="main" class="ui-content" align="center">
 			<p>欢迎${user.username}</p>
 			<div align="center">
-				<a href="#" class="ui-btn ui-btn-inline ui-shadow">我的股票</a>
+				<a href="/robot/stock/list" class="ui-btn ui-btn-inline ui-shadow">我的股票</a>
 				<a href="#" class="ui-btn ui-btn-inline ui-shadow">退出登录</a>
 			</div>
 		</div>
