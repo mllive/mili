@@ -8,7 +8,7 @@
 <script>
 	$(document).ready(function(){
 		$("#username").focus();
-		$("#save").click(function(){
+		$("#reg").click(function(){
 			var msg="";
 			var username=$("#username").val();
 			var password=$("#password").val();

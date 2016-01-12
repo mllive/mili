@@ -1,41 +1,50 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@include file="../inc/meta.jsp"%>
 <%@include file="../inc/common.jsp"%>
-<%@include file="../inc/jquerymobile.jsp"%>
+<!DOCTYPE html>
 <html>
 <head>
+<%@include file="../inc/meta.jsp"%>
 <title><spring:message code="root.title" /></title>
+<%@include file="../inc/jquerymobile.jsp"%>
 <script>
 	$(document).ready(function(){
 		$("#username").focus();
-		$("#save").click(function(){
+		$("#login").click(function(){
 			var msg="";
 			var username=$("#username").val();
 			var password=$("#password").val();
-			var password2=$("#password2").val();
 			if(username==''){
 				msg="您还没有输入用户名！";
 				popMsg(msg);
+				$("#username").focus();
 				return;
 			}
 			if(password==''){
 				msg="您还没有输入密码！";
 				popMsg(msg);
+				$("#password").focus();
 				return;
 			}
-			if(password2!=password){
-				msg="两次输入的密码不一致！";
-				popMsg(msg);
-				return;
-			}
-			
-			$.post(
-				"demo_ajax_gethint.asp",
-				{suggest:txt},
-				function(result){
-					$("span").html(result);
-				}
-			);
+			var formParam = $("#userForm").serialize();//序列化表格内容为字符串  
+			$.ajax({  
+				type:'post',      
+				url:'robot/user/login',  
+				data:formParam,  
+				cache:false,  
+				dataType:'json',  
+				success:function(data){
+					if(data.success){
+						if(1==data.msg){
+							popMsg("用户或密码错误！");
+						}else{
+							popMsg("登录成功！");
+							window.location="robot/user/i/"+data.obj.username;
+						}
+					}else{
+						popMsg("登录失败！");
+					}
+				}  
+			}); 
 		});
 		
 		function popMsg(msg){
@@ -51,16 +60,14 @@
 			<h1>用户登录</h1>
 		</div>
 		<div data-role="main" class="ui-content" align="center">
-			<form method="post" action="save">
+			<form method="post" id="userForm" action="">
 				<label for="username" class="ui-hidden-accessible">账号：</label>
 				<input type="text" name="username" id="username" placeholder="账号..." data-clear-btn="true">
 				<label for="password" class="ui-hidden-accessible">密码：</label>
 				<input type="password" name="password" id="password" placeholder="密码..." data-clear-btn="true">
-				<label for="password2" class="ui-hidden-accessible">确认密码：</label>
-				<input type="password" name="password2" id="password2" placeholder="确认密码..." data-clear-btn="true">
 				<input type="reset" data-inline="true"
 					value="重置">
-				<input type="button" id="save" data-inline="true"
+				<input type="button" id="login" data-inline="true"
 					value="提交">
 			</form>
 		</div>
