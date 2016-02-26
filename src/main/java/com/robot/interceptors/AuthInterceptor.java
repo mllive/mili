@@ -48,6 +48,9 @@ public class AuthInterceptor implements HandlerInterceptor {
 		// IP+访问地址
 		logger.info(IpUtil.getIpAddr(request) + ":" + contextPort + contextPath + requestPath);
 
+		if(requestPath.startsWith("/wechat/?signature")){
+			return true;
+		}
 		// 登录无需验证
 		if (requestPath.startsWith("/resources")) {
 			return true;
